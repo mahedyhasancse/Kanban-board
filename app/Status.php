@@ -9,9 +9,6 @@ class Status extends Model
     protected $fillable=[
         'title', 'slug', 'order',
     ];
-    protected $with=[
-        'tasks'
-    ];
     public function tasks(){
         return $this->hasMany(Task::class,'status_id')->orderBy('order');
     }

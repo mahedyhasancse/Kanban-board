@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('board/{board_identifier}', 'BoardController@singleBoardShow');
+Route::put('/tasks/sync', 'TaskController@sync')->name('tasks.sync');
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -36,6 +38,5 @@ Route::middleware(['auth'])->group(function () {
 
     //Board frontend
     Route::get('/board', 'BoardController@show')->name('board.show');
-    Route::put('/tasks/sync', 'TaskController@sync')->name('tasks.sync');
 });
 

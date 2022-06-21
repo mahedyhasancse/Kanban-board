@@ -13,7 +13,7 @@ class BoardController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'access_id' => 'required',
+            'access_id' => 'required|unique:boards',
             'color' => 'required'
         ]);
         Board::create([
@@ -28,7 +28,11 @@ class BoardController extends Controller
 
     public function update(Request $request, Board $board)
     {
-
+        $this->validate($request, [
+            'name' => 'required',
+            'access_id' => 'required|unique:boards,access_id,'.$board->id,
+            'color' => 'required'
+        ]);
         $board->update([
             'name' => $request->name,
             'access_id' => $request->access_id,
@@ -47,7 +51,17 @@ class BoardController extends Controller
 
     public function show()
     {
+        $statuses = Status::query()->with('tasks')->orderBy('order')->get();
+        return view('boards.index', compact('statuses'));
+    }
+    public function singleBoardShow($board_identifier)
+    {
+        $board = Board::query()->where('access_id', $board_identifier)->first();
+        if(empty($board)) abort('404');
         $statuses = Status::query()->orderBy('order')->get();
+        foreach ($statuses as &$status) {
+            $status->tasks = $status->getBoardTasks($board->id);
+        }
         return view('boards.index', compact('statuses'));
     }
 }

@@ -80,7 +80,7 @@ export default {
     },
     mounted() {
         // 'clone' the statuses so we don't alter the prop when making changes
-        this.statuses = JSON.parse(JSON.stringify(this.initialData));
+        let statuses = JSON.parse(JSON.stringify(this.initialData));
     },
     methods: {
         // ...
