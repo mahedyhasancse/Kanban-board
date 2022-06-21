@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- Styles -->
         <style>
             html, body {
@@ -19,7 +19,7 @@
                 height: 100vh;
                 margin: 0;
             }
-
+              
             .full-height {
                 height: 100vh;
             }
@@ -70,19 +70,22 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-primary">MY Account</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary text-white p-2">MY Account</a>
 
                        
                     @endauth
                 </div>
             @endif
 
-            <div class="content">
+            <div class="card p-4">
+            <div class="content bg-white text-dark">
                 <div class="title m-b-md">
-                    Hello Dear
+                    <marquee behavior="top" direction="down">Hello Dear! </marquee><br>
+                    Welcome TO Our World..
                 </div>
 
                 
+            </div>
             </div>
         </div>
     </body>

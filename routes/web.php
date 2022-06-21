@@ -38,3 +38,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/board', 'BoardController@show')->name('board.show');
     Route::put('/tasks/sync', 'TaskController@sync')->name('tasks.sync');
 });
+

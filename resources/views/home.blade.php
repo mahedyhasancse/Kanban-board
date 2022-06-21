@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend.app')
 
 @section('content')
 <div class="container">
@@ -118,10 +118,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<p><a href="{{route('task')}}" class="btn btn-primary mt-4">Add Task</a></p>
-			<p><a href="{{route('board.show')}}" class="btn btn-success">Catalog view</a></p>
-		</div>
+	
 	</div>
 </div>
 </div>

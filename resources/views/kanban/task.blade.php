@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.backend.app')
 
 @section('content')
 <div class="row">
 	<div class="container">
-		<div class="card p-4">
-			<div class="col-md-8">
+	<div class="card p-4 m-4">
+			<div class="col-md-12">
 				<form action="{{route('store.task')}}" method="POST">
 					@csrf
-					<div class="col-md-8 bg-primary p-4 text-white text-center">
+					<div class="col-md-12 bg-primary p-4 text-white text-center">
 						<h3>Add Board</h3>
 					</div>
 					<hr>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-12">
 						<hr>
 						<h4>All Boards</h4>
 						<hr>
@@ -131,11 +131,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-4">
-						<p><a href="/home" class="btn btn-primary">Home</a></p>
-						<p><a href="" class="btn btn-success">Catalog view</a></p>
-
-					</div>
+					
 				</div>
 			</div>
 		</div>
